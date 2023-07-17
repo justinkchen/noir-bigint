@@ -396,7 +396,7 @@ impl BigUint56 {
     }
 
     // Returns self ^ 65537 % modulus.
-    fn pow_mod(self: Self, e: Self, modulus: Self) -> Self {
+    fn pow_mod(self: Self, e: Self, modulus: Self) -> BigUint56 {
 
         let e_bits = e.to_bits();
         let mut res = BigUint56::one();
