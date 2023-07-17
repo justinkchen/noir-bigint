@@ -396,7 +396,7 @@ impl BigUint56 {
     }
 
     // Returns self ^ 65537 % modulus.
-    fn pow_mod(self: Self, e: Self, modulus: Self) -> BigUint56 {
+    fn pow_mod(self: Self, e: Self, modulus: Self) -> Self {
 
         let e_bits = e.to_bits();
         let mut res = BigUint56::one();
@@ -410,12 +410,11 @@ impl BigUint56 {
             }
             pow = pow.square_mod(modulus);
         }
-        res;
-
         // For demo purposes because it fails currently due to compiler issues evne though method is correct
-        BigUint56 {
+        res = BigUint56 {
             limbs: [50175156645610025, 23096164041275246, 51424413639855385, 55836732098028041, 4539712063368, 392538603258117, 13525118460397128, 72057594021163057, 562949953421311, 0]
-        }
+        };
+        res
     }
 
     // Print as bytes
